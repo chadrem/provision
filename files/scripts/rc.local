@@ -1,0 +1,23 @@
+#!/bin/bash
+
+touch /var/lock/subsys/local
+
+#
+# Start myproject app processes.
+#
+
+MYPROJECT_START_LOG="/var/log/myproject_start.log"
+
+cat /dev/null > $MYPROJECT_START_LOG
+
+for i in /etc/profile.d/*.sh; do
+  if [ -r "$i" ]; then
+    . "$i" >> $MYPROJECT_START_LOG
+  fi
+done
+
+echo '***** Pulling releases *****' >> $MYPROJECT_START_LOG &&
+su - cap -c "/opt/ruby/bin/releases -b myproject-$RAILS_ENV-releases -d /apps/myproject -m pull" >> $MYPROJECT_START_LOG &&
+
+echo '***** Starting app processes *****' >> $MYPROJECT_START_LOG &&
+su - cap -c "/apps/myproject/current/scripts/start.sh" >> $MYPROJECT_START_LOG

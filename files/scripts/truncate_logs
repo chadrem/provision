@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+class TruncateRailsLogs
+  def run
+    find_logs
+    truncate_logs
+  end
+
+  def find_logs
+    @logs = Dir['/apps/*/current/log/**/*']
+  end
+
+  def truncate_logs
+    @logs.each { |l| system("cat /dev/null > #{l}") unless File.directory?(l) }
+  end
+end
+
+TruncateRailsLogs.new.run

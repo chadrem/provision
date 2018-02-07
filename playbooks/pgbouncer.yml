@@ -1,0 +1,13 @@
+---
+- hosts: all
+  remote_user: centos
+  become: yes
+  tasks:
+    - name: copy pgbouncer.ini
+      template: src=../files/configs/pgbouncer.ini.j2 dest=/etc/pgbouncer/pgbouncer.ini owner=root group=root mode=0644
+
+    - name: copy userlist.txt
+      copy: src=../files/configs/userlist.txt dest=/etc/pgbouncer/userlist.txt owner=root group=root mode=0644
+
+    - name: enable pgbouncer service
+      service: name=pgbouncer enabled=true state=started

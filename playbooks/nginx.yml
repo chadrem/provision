@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: centos
+  become: yes
+  tasks:
+    - name: copy nginx.conf
+      copy: src=../files/configs/nginx.conf dest=/etc/nginx/nginx.conf owner=root group=root mode=0644
+
+    - name: enable nginx service
+      service: name=nginx enabled=true state=reloaded

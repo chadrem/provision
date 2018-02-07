@@ -1,0 +1,21 @@
+---
+- hosts: all
+  remote_user: centos
+  become: yes
+  tasks:
+    - name: create capistrano user
+      user: name=cap shell=/bin/bash generate_ssh_key=yes ssh_key_bits=2048 ssh_key_file=.ssh/id_rsa
+
+    - name: create capistrano user bash profile
+      copy: src=../files/configs/bash_profile dest=/home/cap/.bash_profile owner=cap group=cap mode=0640
+
+    - name: create /apps directory
+      file: path=/apps state=directory owner=cap group=cap mode=0755
+
+    - name: create /apps/myproject directory
+      file: path=/apps/myproject state=directory owner=cap group=cap mode=0755
+
+    - name: create capistrano authorized keys
+      authorized_key: user=cap key="{{ item }}"
+      with_file:
+        - ../files/keys/myuser

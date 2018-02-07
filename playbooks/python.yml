@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: centos
+  become: yes
+  tasks:
+    - name: copy requirements.txt
+      copy: src=../../requirements.txt dest=/root/requirements.txt
+
+    - name: install python packages
+      pip: requirements=/root/requirements.txt executable=/usr/bin/pip

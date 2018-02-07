@@ -1,0 +1,14 @@
+#!/bin/bash
+
+BS=1M
+COUNT=5120
+LOCATION=/swapfile
+
+if [ -f $LOCATION ]; then
+  echo "Swapfile already created. Skipping."
+  exit 0
+fi
+
+dd if=/dev/zero of=/swapfile bs=$BS count=$COUNT &&
+chmod 0600 /swapfile && mkswap /swapfile &&
+echo /swapfile swap swap 1 1 >> /etc/fstab && swapon -a

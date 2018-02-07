@@ -1,0 +1,13 @@
+---
+- hosts: all
+  remote_user: centos
+  become: yes
+  tasks:
+    - name: create /root/src
+      file: path=/root/src state=directory owner=root group=root mode=0750
+
+    - name: create /root/build
+      file: path=/root/build state=directory owner=root group=root mode=0750
+
+    - name: create /root/installers
+      file: path=/root/installers state=directory owner=root group=root mode=0750

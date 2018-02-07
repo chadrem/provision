@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: centos
+  become: yes
+  tasks:
+    - name: copy install_swapfile
+      copy: src=../files/installers/install_swapfile dest=/root/installers/install_swapfile owner=root group=root mode=0750
+
+    - name: run install_swapfile
+      command: /root/installers/install_swapfile

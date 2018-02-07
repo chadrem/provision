@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: centos
+  become: yes
+  tasks:
+    - name: create /etc/profile.d/app-env.sh
+      template: src=../files/scripts/app-env.sh.j2 dest=/etc/profile.d/app-env.sh owner=root group=root mode=0644
+
+    - name: create /etc/profile.d/ruby.sh
+      copy: src=../files/scripts/ruby.sh dest=/etc/profile.d/ruby.sh owner=root group=root mode=0644

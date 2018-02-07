@@ -1,0 +1,23 @@
+---
+- hosts: all
+  remote_user: centos
+  become: yes
+  tasks:
+    - name: install postgresql yum repo
+      yum: name=https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm state=present
+
+    - name: install postgresql packages
+      yum: state=present name={{ item }}
+      with_items:
+        - postgresql96
+        - postgresql96-devel
+        - postgresql96-server
+        - postgresql96-libs
+        - postgresql96-contrib
+        - pgbouncer
+
+    - name: symlink pg_config
+      file: src=/usr/pgsql-9.6/bin/pg_config dest=/usr/bin/pg_config state=link owner=root group=root mode=0755
+
+    - name: disable postgresql service
+      service: name=postgresql-9.6 enabled=false state=stopped

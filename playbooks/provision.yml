@@ -1,0 +1,17 @@
+---
+- include: user_root.yml
+- include: swapfile.yml
+- include: timezone.yml
+- include: selinux.yml
+- include: packages.yml
+- include: configs.yml
+- include: scripts.yml
+- include: user_cap.yml
+- include: shell_initializers.yml
+- include: ruby.yml
+- include: python.yml
+- include: nginx.yml
+- include: redis.yml
+- include: postgresql.yml
+- include: pgbouncer.yml
+- include: firewalld.yml

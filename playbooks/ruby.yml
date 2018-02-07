@@ -1,0 +1,19 @@
+---
+- hosts: all
+  remote_user: centos
+  become: yes
+  tasks:
+    - name: install ruby
+      unarchive: src=http://myproject-production-provision.s3.amazonaws.com/ruby-2.4.2.bin.tar.gz dest=/ remote_src=true
+
+    - name: symlink ruby
+      file: src=/opt/ruby-2.4.2 dest=/opt/ruby state=link owner=root group=root mode=0755
+
+    - name: install bundler gem
+      gem: name=bundler state=latest executable=/opt/ruby/bin/gem user_install=false
+
+    - name: install aws-sdk gem
+      gem: name=aws-sdk state=present version=2.10.35 executable=/opt/ruby/bin/gem user_install=false
+
+    - name: install capistrano-releases gem
+      gem: name=capistrano-releases state=latest executable=/opt/ruby/bin/gem user_install=false

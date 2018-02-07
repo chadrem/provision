@@ -1,0 +1,16 @@
+---
+- hosts: all
+  remote_user: centos
+  become: yes
+  tasks:
+    - name: enable firewalld
+      service: name=firewalld state=started enabled=yes
+
+    - name: set dmz as default policy
+      command: firewall-cmd --set-default-zone=dmz
+
+    - name: allow http, ssh
+      command: firewall-cmd --zone=dmz --permanent --add-service=http --add-service=ssh
+
+    - name: bounce firewalld
+      service: name=firewalld state=restarted

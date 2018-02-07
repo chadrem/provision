@@ -1,0 +1,47 @@
+---
+- hosts: all
+  remote_user: centos
+  become: yes
+  tasks:
+    - name: install yum updates
+      yum: name=* state=latest
+
+    - name: install 'Development tools'
+      yum: name="@Development tools" state=present
+
+    - name: install community package
+      yum: state=present name=https://centos7.iuscommunity.org/ius-release.rpm
+
+    - name: install yum packages
+      yum: state=present name={{ item }}
+      with_items:
+        - pcre-devel
+        - readline-devel
+        - telnet
+        - sysstat
+        - libxml2-devel
+        - ImageMagick
+        - ImageMagick-devel
+        - gd
+        - gd-devel
+        - libyaml-devel
+        - libxslt-devel
+        - mailx
+        - libcurl-devel
+        - openssl-devel
+        - wget
+        - firewall-config
+        - memcached
+        - memcached-devel
+        - python-psycopg2
+        - vim
+        - screen
+        - xorg-x11-server-Xvfb
+        - firefox
+        - alpine
+        - python2-pip
+        - python-devel
+        - jemalloc
+        - jemalloc-devel
+        - redis
+        - nginx

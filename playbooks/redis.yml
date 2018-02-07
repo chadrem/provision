@@ -1,0 +1,7 @@
+---
+- hosts: all
+  remote_user: centos
+  become: yes
+  tasks:
+    - name: disable redis service
+      service: name=redis enabled=false state=stopped

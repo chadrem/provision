@@ -1,0 +1,13 @@
+---
+- hosts: all
+  remote_user: centos
+  become: yes
+  tasks:
+    - name: copy swap_report
+      copy: src=../files/scripts/swap_report dest=/usr/local/sbin/swap_report owner=root group=root mode=0755
+
+    - name: copy truncate_logs
+      copy: src=../files/scripts/truncate_logs dest=/usr/local/sbin/truncate_logs owner=root group=root mode=0755
+
+    - name: copy rc.local
+      copy: src=../files/scripts/rc.local dest=/etc/rc.d/rc.local owner=root group=root mode=0755

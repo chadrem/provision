@@ -1,0 +1,13 @@
+---
+- hosts: all
+  remote_user: centos
+  become: yes
+  tasks:
+    - name: copy limits.conf
+      copy: src=../files/configs/limits.conf dest=/etc/security/limits.conf owner=root group=root mode=0644
+
+    - name: copy sudoers
+      copy: src=../files/configs/sudoers dest=/etc/sudoers owner=root group=root mode=0440
+
+    - name: copy sshd.conf
+      copy: src=../files/configs/sshd_config dest=/etc/ssh/sshd_config owner=root group=root mode=0600
