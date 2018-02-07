@@ -1,4 +1,4 @@
-# Ansible Example Project
+# Ansible Example - Cloud Server Provisioning
 
 This is an example project for provisioning cloud servers using Ansible and the following applications:
 
