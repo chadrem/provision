@@ -13,7 +13,7 @@ This is an example project for provisioning cloud servers using Ansible and the 
 
 This example project is meant to be highly customized.
 Do not attempt to use it without customization.
-The target audience for this project is someone with detailed knowledge of Linux, devops, AWS, etc.
+The target audience for this project is someone with detailed knowledge of Linux, devops, AWS, Python, Bash, etc.
 The goal of this project is to demonstrate reproducible and automated server builds.
 
 ## Features
@@ -24,6 +24,7 @@ The goal of this project is to demonstrate reproducible and automated server bui
 ## Setup
 
 * Install Ansible and any of its dependencies (such as Python) using the official documentation.
+* Install [Python](https://www.python.org) and [Invoke](http://www.pyinvoke.org).
 * Setup your default ansible-vault password file: ````echo myproject > "$HOME/.vault_pass_myproject.txt"````
 * Source the required environment variables: ````. shell_vars.env````
 * Customize the project to your requirements.
