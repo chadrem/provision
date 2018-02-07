@@ -11,7 +11,7 @@ This is an example project for provisioning cloud servers using Ansible and the 
 * PgBouncer
 * Redis
 
-This example project is meant ot be highly customized.
+This example project is meant to be highly customized.
 Do not attempt to use it without customization.
 The target audience for this project is someone with detailed knowledge of Linux, devops, AWS, etc.
 The goal of this project is to demonstrate reproducible and automated server builds.
