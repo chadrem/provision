@@ -27,8 +27,8 @@ The goal of this project is to demonstrate reproducible and automated server bui
 This project assumes you are using Linux or OSX to run Ansible.
 It hasn't been tried with Windows and customization is most likely needed.
 
-* Install [Ansible](https://www.ansible.com) and any of its dependencies (such as Python) using the official documentation.
-* Install [Python](https://www.python.org) and [Invoke](http://www.pyinvoke.org).
+* Install Ansible and any of its dependencies (such as Python) using the official documentation.
+* Install Python and [Invoke](http://www.pyinvoke.org).
 * Setup your default ansible-vault password file: ````echo myproject > "$HOME/.vault_pass_myproject.txt"````
 * Source the required environment variables: ````. shell_vars.env````
 * Customize the project to your requirements.
