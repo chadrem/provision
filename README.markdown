@@ -5,12 +5,13 @@ This is an example project for provisioning cloud servers using Ansible and the 
 * CentOS 7
 * Amazon (AWS) EC2
 * nginx
-* Ruby on Rails
-* Capistrano
-* My [capistrano-releases](https://github.com/chadrem/capistrano-releases) gem to make Capistrano play nice with auto scaling environments.
 * PostgreSQL (Amazon RDS)
 * PgBouncer
 * Redis
+* Ruby on Rails
+* Capistrano
+* My [capistrano-releases](https://github.com/chadrem/capistrano-releases) gem to make Capistrano play nice with auto scaling environments.
+
 
 This example project is meant to be highly customized.
 Do not attempt to use it without customization.
