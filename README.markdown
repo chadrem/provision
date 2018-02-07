@@ -23,7 +23,7 @@ The goal of this project is to demonstrate reproducible and automated server bui
 
 ## Setup
 
-* Install [Ansible](https://www.ansible.com)and any of its dependencies (such as Python) using the official documentation.
+* Install [Ansible](https://www.ansible.com) and any of its dependencies (such as Python) using the official documentation.
 * Install [Python](https://www.python.org) and [Invoke](http://www.pyinvoke.org).
 * Setup your default ansible-vault password file: ````echo myproject > "$HOME/.vault_pass_myproject.txt"````
 * Source the required environment variables: ````. shell_vars.env````
